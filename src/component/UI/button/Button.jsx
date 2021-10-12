@@ -1,7 +1,7 @@
 import React from 'react';
-import './_CardButton.scss';
+import './_Button.scss';
 
-function CardButton({ children, ...props }) {
+function Button({ children, ...props }) {
 	return (
 		<div>
 			<button {...props}>{children}</button>
@@ -9,4 +9,4 @@ function CardButton({ children, ...props }) {
 	);
 }
 
-export default CardButton;
+export default Button;
