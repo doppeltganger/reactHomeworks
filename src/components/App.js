@@ -1,12 +1,13 @@
-import Main from './Main';
-import FormProvider from '../context/FormContext';
-import formReducer, { initialState } from '../reducers/FormReducer';
+import Game from './Game/Game';
+import { gameReducer, initialState } from '../reducers';
+import { GameProvider } from '../context';
+import '../styles/main.scss';
 
-const App = () => {
+function App() {
     return (
-        <FormProvider formReducer={ formReducer } initialState={ initialState }>
-            <Main/>
-        </FormProvider>
+        <GameProvider reducer={gameReducer} initialState={initialState}>
+            <Game/>
+        </GameProvider>
     );
 }
 

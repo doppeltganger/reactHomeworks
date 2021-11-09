@@ -1,0 +1,28 @@
+.turn-button {
+    position: relative;
+    top: 0;
+    margin: 15px;
+    padding: 5px;
+    width: 90px;
+    height: 80px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+    text-transform: uppercase;
+    background: #ddc3a5;
+    color: #c66b3d;
+    border: 2px solid #c66b3d;
+    border-radius: 5px;
+    box-shadow: 0 12px #c66b3d, 0 18px rgba(#000, .4);
+    cursor: pointer;
+
+    &:hover {
+        top: 4px;
+        background: #ddc3a5;
+        box-shadow: 0 8px #c66b3d, 0 14px rgba(#000, .4);
+    }
+
+    &:active {
+        top: 8px;
+        box-shadow: 0 4px #c66b3d, 0 10px rgba(#000, .4);
+    }
+}

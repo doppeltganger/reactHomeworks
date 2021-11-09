@@ -1,0 +1,50 @@
+.game {
+	display: flex;
+	margin: 0 0 20px;
+
+    &__wrap {
+        display: flex;
+        justify-content: space-around;
+		padding: 20px;
+        color: #ddc3a5;
+    }
+
+    &__title {
+        flex: 0 0 calc(100% / 4);
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        flex: 0 0 calc(100% / 4 * 2);
+        padding: 100px 0 0;
+    }
+
+	&__settings {
+		padding: 10px;
+		flex: 0 0 calc(100% / 4);
+		background: #ddc3a5;
+		color: #201e20;
+		border-radius: 5px;
+	}
+
+	&__field {
+		flex: 0 0 calc(100% / 4 * 2);
+	}
+
+	&__description {
+		flex: 0 0 calc(100% / 4);
+	}
+
+	&__over-title {
+		font-size: 35px;
+		text-align: center;
+		color: #c66b3d;
+		visibility: hidden;
+
+		&-vs {
+			visibility: visible;
+		}
+	}
+}

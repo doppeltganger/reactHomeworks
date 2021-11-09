@@ -1,0 +1,51 @@
+.name-block {
+	&__input {
+		margin: 0 0 10px;
+		padding: 10px 5px;
+		border: none;
+		border-radius: 5px;
+
+		&:focus-visible {
+			outline: none;
+		}
+	}
+
+	&__button {
+		width: 100%;
+		margin: 10px 0;
+		padding: 10px;
+		font-size: 15px;
+		background: #c66b3d;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+
+		&:hover {
+			opacity: .95;
+			cursor: pointer;
+		}
+		
+		&:disabled {
+			background: transparent;
+			color: transparent;
+			cursor: default;
+		}
+	}
+}
+
+.sign-block {
+    margin: 0 0 10px;
+
+    &__form {
+        text-align: center;
+    }
+
+	&__input {
+		cursor: pointer;
+	}
+
+	&__desc {
+        margin: 0 10px 0 0;
+		font-weight: 700;
+	}
+}

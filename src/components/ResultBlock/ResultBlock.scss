@@ -1,0 +1,11 @@
+.result-block {
+    flex: 0 0 calc(100% / 4);
+
+	&__list {
+		list-style: none;
+	}
+
+	&__item {
+		margin: 0 0 5px;
+	}
+}
