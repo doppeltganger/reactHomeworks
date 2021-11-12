@@ -1,0 +1,53 @@
+.timer {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: rgba(#000, .8);
+	display: none;
+
+	&.active {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		padding: 20px 30px;
+		width: 350px;
+		height: 350px;;
+		font-size: 20px;
+		text-align: center;
+		background: #201e20;
+		border-radius: 5px;
+	}
+
+	&__title {
+		margin: 0 0 20px;
+	}
+
+	&__desc {
+		margin: 0 0 10px;
+	}
+
+	&__board {
+		margin: 10px 0 20px;
+		font-size: 30px;
+	}
+
+	&__control {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		margin: 0 0 50px;
+	}
+
+	&__change-block {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
