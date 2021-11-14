@@ -1,4 +1,9 @@
 .cards {
+	&__header {
+		display: flex;
+		justify-content: space-between;
+	}
+	
 	&__body {
 		display: flex;
 		flex-wrap: wrap;

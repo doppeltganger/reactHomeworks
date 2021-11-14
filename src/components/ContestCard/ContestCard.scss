@@ -1,15 +1,10 @@
-.cards {
-    &__wrap {
-        flex: 0 0 calc(100% / 3);
-    }
-}
-
-.card {
+.contest {
+    position: relative;
     display: flex;
     flex-direction: column;
+    flex: 0 0 18.5%;
     margin: 10px;
     padding: 20px;
-    min-height: 100px;
     font-size: 20px;
     background: #201e20;
     color: #ddc3a5;
@@ -18,5 +13,9 @@
 
     &__desc {
         margin: 0 0 10px;
+    }
+
+    &__body {
+        flex-grow: 1;
     }
 }

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { participantReducer } from './participantReducer';
 import { formReducer } from './formReducer';
+import { participantReducer } from './participantReducer';
+import { contestsReducer } from './contestsReducer';
 
 export const rootReducer = combineReducers({
-    participantsInfo: participantReducer,
+    contests: contestsReducer,
+    contestData: participantReducer,
     newParticipant: formReducer,
 });

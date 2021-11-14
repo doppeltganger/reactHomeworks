@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addParticipant } from '../../redux/actions/participantActions';
 import { addParticipantData, resetFormFields } from '../../redux/actions/formActions';
-import { useStorage } from '../../hooks/useStorage';
 import Button from '../UI/Button/Button';
 import useTimer from '../../hooks/useTimer';
 import formateTime from '../../helpers/formateTime';
@@ -12,8 +11,6 @@ const Timer = (props) => {
 	const participant = useSelector((state) => state.newParticipant);
 
 	const dispatch = useDispatch();
-
-	const [participants, setParticipants] = useStorage([], 'participants');
 
 	const { startTime, stopTime, resetTime, time, isStoppedTimer } = useTimer();
 
@@ -44,14 +41,14 @@ const Timer = (props) => {
 					<Button
 						style={ { background: '#0d5825' } }
 						onClick={ () => { startTime() } }
-						disabled={ !!time.counter }
+						disabled={ !!time.counter && !isStoppedTimer }
 					>
 						Start
 					</Button>
 					<Button
 						style={ { background: '#800000' } }
 						onClick={ () => { stopTime() } }
-						disabled={ !time.counter || isStoppedTimer }
+						disabled={ !time.counter && isStoppedTimer }
 					>
 						Stop
 					</Button>
@@ -77,7 +74,6 @@ const Timer = (props) => {
 						onClick={ () => {
 							props.setActive(false);
 							dispatch(addParticipant([participant]));
-							setParticipants([...participants, participant]);
 							dispatch(resetFormFields());
 							resetTime();
 						} }

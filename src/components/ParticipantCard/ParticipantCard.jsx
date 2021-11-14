@@ -16,7 +16,7 @@ const ParticipantCard = ({ participant, onClick }) => {
 					Surname: { participant.surname }
 				</p>
 				<p className='card__desc'>
-					time: { formateTime(participant.time) }
+					Time: { formateTime(participant.time) }
 				</p>
 				<Button onClick={ () => { onClick(participant.id) } }>Delete</Button>
 			</div>

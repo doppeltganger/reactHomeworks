@@ -2,10 +2,16 @@ import { connect } from 'react-redux';
 import { showWinner } from '../redux/actions/participantActions';
 import Winner from '../components/Winner/Winner';
 
-const mapStateToProps = (state) => ({
-    participants: state.participantsInfo.participants,
-    winner: state.participantsInfo.winner,
-});
+const mapStateToProps = (state, props) => {
+    let currentContest = state.contests.find(
+        (contest) => contest.id === props.route.match.params.competitionId
+    );
+
+    return {
+        participants: currentContest.participants,
+        winner: currentContest.winner,
+    };
+};
 
 const mapDispatchToProps = (dispatch) => ({
     determineWinner: (inputValue) => {

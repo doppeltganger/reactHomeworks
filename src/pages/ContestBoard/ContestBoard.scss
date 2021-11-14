@@ -1,0 +1,13 @@
+.contest-board {
+    display: flex;
+
+    &__participants {
+        padding: 0 10px 0 0;
+        flex: 0 0 calc(100% / 3 * 2);
+    }
+
+    &__form {
+        padding: 0 0 0 10px;
+        flex: 0 0 calc(100% / 3);
+    }
+}

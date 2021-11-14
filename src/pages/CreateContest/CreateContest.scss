@@ -1,0 +1,22 @@
+.contest-create {
+    position: relative;
+    min-height: inherit;    
+
+    &__body {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        display: inline-block;
+        padding: 50px 20px 70px;
+        text-align: center;
+        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        border: 1px solid #c66b3d;
+        border-radius: 5px;
+    } 
+
+    &__title {
+        margin: 0 0 40px;
+    }
+}

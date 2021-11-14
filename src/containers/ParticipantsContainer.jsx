@@ -1,11 +1,18 @@
 import { connect } from 'react-redux';
 import Participants from '../components/Participants/Participants';
-import { addParticipant, deleteParticipant, searcParticipant } from '../redux/actions/participantActions';
+import { addParticipant, deleteParticipant, searcParticipant, showWinner, clearData } from '../redux/actions/participantActions';
+import { addContestData } from '../redux/actions/contestsActions'
 
-const mapStateToProps = (state) => ({
-    participants: state.participantsInfo.participants,
-    searchedParticipant: state.participantsInfo.searchedParticipant,
-});
+const mapStateToProps = (state, props) => {
+    let currentContest = state.contests.find(
+        (contest) => contest.id === props.route.match.params.competitionId
+    );
+
+    return {
+        participants: currentContest.participants,
+        searchedParticipant: state.contestData.searchedParticipant,
+    };
+};
 
 const mapDispatchToProps = (dispatch) => ({
     add: (participant) => {
@@ -16,6 +23,15 @@ const mapDispatchToProps = (dispatch) => ({
     },
     search: (value) => {
         dispatch(searcParticipant(value));
+    },
+    addData: (data) => {
+        dispatch(addContestData(data));
+    },
+    clearData: () => {
+        dispatch(clearData());
+    },
+    addWinner: () => {
+        dispatch(showWinner());
     },
 });
 

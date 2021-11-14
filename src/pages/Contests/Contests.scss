@@ -1,0 +1,13 @@
+.contests {
+    overflow: hidden;
+    
+    &__header {
+        display: flex;
+        margin: 0 0 20px;
+    }
+
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

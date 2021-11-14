@@ -1,11 +1,15 @@
 import React, { useMemo, useEffect } from 'react';
-import { useStorage } from '../../hooks/useStorage';
+import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
+import Button from '../UI/Button/Button';
 import Input from '../UI/Input/Input';
 import ParticipantCard from '../ParticipantCard/ParticipantCard';
 import './Participants.scss';
 
 const Participants = (props) => {
-    const [participants] = useStorage([], 'participants');
+    const history = useHistory();
+
+    const contestParticipants = useSelector((state) => state.contestData);
 
     const deleteParticipant = (id) => {
         props.delete(id);
@@ -16,7 +20,23 @@ const Participants = (props) => {
     };
 
     useEffect(() => {
-        props.add(participants);
+        props.addData({
+            participants: contestParticipants.participants,
+            id: props.route.match.params.competitionId,
+            winner: contestParticipants.winner,
+        });
+    }, [contestParticipants]);
+
+    useEffect(() => {
+        props.add(props.participants);
+
+        if (props.participants.length) {
+            props.addWinner();
+        }
+
+        return () => {
+            props.clearData();
+        };
     }, []);
 
     const filteredParticipant = useMemo(() => {
@@ -34,12 +54,20 @@ const Participants = (props) => {
 
     return (
         <div className='cards'>
-            <Input
-                style={ { width: '100%', margin: '0 0 15px' } }
-                placeholder='Enter paricipant name, surname or id'
-                value={ props.searchedParticipant }
-                onChange={ (event) => { searchParticipant(event.target.value) } }
-            />
+            <div className='cards__header'>
+                <Input
+                    style={ { flex: '0 0 calc(100% / 3 * 2)' } }
+                    placeholder='Enter paricipant name, surname or id'
+                    value={ props.searchedParticipant }
+                    onChange={ (event) => { searchParticipant(event.target.value) } }
+                />
+                <Button 
+                    style={ { padding: '20px 55px' } }
+                    onClick={ () => history.push('/') }
+                >
+                    Go to contests page
+                </Button>
+            </div>
             <div className='cards__body'>
                 { filteredParticipant.map((participant) => {
                     return (

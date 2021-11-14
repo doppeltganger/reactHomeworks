@@ -1,5 +1,5 @@
-import Button from '../UI/Button/Button';
 import formateTime from '../../helpers/formateTime';
+import Button from '../UI/Button/Button';
 import './Winner.scss'
 
 const Winner = (props) => {
@@ -21,7 +21,7 @@ const Winner = (props) => {
 			) : (
 			<div className='winners'>
 				<h3 className='winners__title'>Total participants: {props.participants.length}</h3>
-				<Button onClick={ () => props.determineWinner(props.participants.length) }>Show winner</Button>
+				<Button onClick={ () => { props.determineWinner(props.participants.length) } }>Show winner</Button>
 			</div>
 		) }
 		</div>

@@ -11,20 +11,9 @@ body {
     color: #ddc3a5;
 }
 
-.contest {
-    display: flex;
+.main {
     padding: 20px;
     min-height: 100vh;
     border: 1px solid #c66b3d;
     border-radius: 5px;
-
-    &__participants {
-        padding: 0 10px 0 0;
-        flex: 0 0 calc(100% / 3 * 2);
-    }
-
-    &__form {
-        padding: 0 0 0 10px;
-        flex: 0 0 calc(100% / 3);
-    }
 }

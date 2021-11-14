@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { createId } from '../../helpers/createId';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from '../../helpers/validationSchema';
+import { participantSchema } from '../../helpers/validationSchema';
 import { v4 as id } from 'uuid';
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
@@ -13,7 +14,7 @@ const Registration = (props) => {
 
 	const { register, handleSubmit, formState: { errors, isValid } } = useForm({
 		mode: 'onChange',
-		resolver: yupResolver(schema),
+		resolver: yupResolver(participantSchema),
 	});
 
 	const onInputData = (event) => {
@@ -21,12 +22,7 @@ const Registration = (props) => {
 	};
 	
 	const onSubmit = () => {
-		let ID = id()
-			.split('')
-			.filter((element) => Number.isInteger(+element))
-			.slice(0, 4)
-			.join('');
-
+		const ID = createId();
 		props.inputValue({ name: 'id', value: ID });
 		setIsActiveTimer((prop) => !prop);
 	};

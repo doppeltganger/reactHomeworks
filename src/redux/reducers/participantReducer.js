@@ -13,6 +13,11 @@ export const participantReducer = (state = initialState, action) => {
                 ...state,
                 participants: [...state.participants, ...action.payload],
             };
+            
+        case participantActions.CLEAR_DATA:
+            return {
+                ...initialState,
+            };
 
         case participantActions.DELETE_PARTICIPANT:
             return {
@@ -30,8 +35,7 @@ export const participantReducer = (state = initialState, action) => {
             return {
                 ...state,
                 winner: [...state.participants].sort((a, b) => b.time - a.time).pop(),
-            };
-            
+            };  
         default:
         return state;
     }

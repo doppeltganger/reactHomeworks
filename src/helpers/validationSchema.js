@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-export const schema = yup.object().shape({
+export const participantSchema = yup.object().shape({
 	name: yup
 		.string()
 		.required('You need to supply name')
@@ -15,4 +15,10 @@ export const schema = yup.object().shape({
 			/^[a-z\u0400-\u04FF]{1,10}$/i,
 			'Surname should be all alphabetic characters'
 		),
+});
+
+export const contestSchema = yup.object().shape({
+	contestName: yup
+		.string()
+		.required('You need to supply name of the game')
 });

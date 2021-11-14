@@ -3,6 +3,7 @@ export const participantActions = {
     DELETE_PARTICIPANT: 'delete the participant',
     SEARCH_PARTICIPANT: 'search the participant',
     SHOW_WINNER: 'show the winner',
+    CLEAR_DATA: 'clear information',
 };
 
 export const addParticipant = (participant) => ({
@@ -15,11 +16,16 @@ export const deleteParticipant = (id) => ({
     payload: id,
 });
 
-export const searcParticipant = (text) => ({
+export const searcParticipant = (inputValue) => ({
     type: participantActions.SEARCH_PARTICIPANT,
-    payload: text,
+    payload: inputValue,
 });
 
 export const showWinner = () => ({
     type: participantActions.SHOW_WINNER,
+});
+
+
+export const clearData = () => ({
+    type: participantActions.CLEAR_DATA,
 });
